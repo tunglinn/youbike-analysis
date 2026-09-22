@@ -33,17 +33,6 @@ DuckDB join demo. Verified end-to-end against a scratch directory: output was
 byte-identical to the manually-built files documented below (37,563,126 bytes,
 7,596,992 rows, same 99.78% match rate).
 
-## Downloaded so far
-
-- `202607_YouBike.csv.gz` — July 2026 (latest available month), gzip -9
-  compressed CSV.
-
-Columns: `rent_time, rent_station, return_time, return_station, rent (HH:MM:SS
-duration), bike_type (一般車/電輔車), infodate`.
-
-Read with `pandas.read_csv("202607_YouBike.csv.gz")` (pandas handles gzip
-transparently) or `duckdb.sql("select * from read_csv('202607_YouBike.csv.gz')")`.
-
 ## Per-month sizing (July 2026, representative)
 
 | Form | Size |
