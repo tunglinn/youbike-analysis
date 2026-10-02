@@ -50,6 +50,26 @@ python youbike_cli.py top-stations --data-dir data --n 10
 rather than duplicated across millions of rows. Rationale in
 [`data/README.md`](data/README.md).
 
+## Notebook: MRT stoppages vs YouBike rentals
+
+[`notebooks/mrt_youbike_disruption.ipynb`](notebooks/mrt_youbike_disruption.ipynb) estimates
+when the Taipei MRT stopped during an event (the 2024-04-03 Hualien and 2021-10-24 Yilan
+earthquakes are set up) and checks whether YouBike rentals picked up stranded riders. It
+downloads the hourly MRT station counts and the YouBike rental records itself, so it runs
+anywhere:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tunglinn/youbike-analysis/blob/main/notebooks/mrt_youbike_disruption.ipynb)
+
+Locally it caches downloads under `data/cache/` (gitignored). To try another event, add an
+entry to `EVENTS` in the notebook and set `EVENT`.
+
+For any other date, use the interactive version,
+[`notebooks/mrt_youbike_explorer.ipynb`](notebooks/mrt_youbike_explorer.ipynb)
+([open in Colab](https://colab.research.google.com/github/tunglinn/youbike-analysis/blob/main/notebooks/mrt_youbike_explorer.ipynb)).
+Pick a date and hour in a Colab form; it finds the same weekday in the surrounding weeks,
+flags unusual days (holidays, heavy rain), and lets you choose which ones to leave out of
+the baseline. Outside Colab the form fields are plain variables at the top of each cell.
+
 ## Data isn't committed
 
 `data/` is gitignored (except its `README.md`): the raw CSV alone exceeds
